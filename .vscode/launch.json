@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "pwa-node",
+          "request": "launch",
+          "name": "Launch TypeScript Node Server",
+          "skipFiles": [
+              "<node_internals>/**"
+          ],
+          "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ts-node",
+          "args": ["src/index.ts"],
+          "cwd": "${workspaceFolder}"
+      }
+  ]
+}

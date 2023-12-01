@@ -11,8 +11,34 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  username String
-  password String
+  username  String
+  password  String
+  Entry     Entry[]
+}
+
+model Entry {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  prompt    Prompt   @relation(fields: [promptId], references: [id])
+  createdAt DateTime @default(now())
+  userId    Int
+  promptId  Int
+  text      Json
+  photoUrl  String
+}
+
+model Prompt {
+  id     Int           @id @default(autoincrement())
+  title  String
+  Entry  Entry[]
+  usages PromptUsage[]
+}
+
+model PromptUsage {
+  id       Int      @id @default(autoincrement())
+  dateUsed DateTime
+  promptId Int
+  prompt   Prompt   @relation(fields: [promptId], references: [id])
 }

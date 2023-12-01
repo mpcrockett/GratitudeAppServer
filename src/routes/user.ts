@@ -10,4 +10,8 @@ userRouter.get('/:id', async (req, res) => {
   return res.status(200).json(user);
 });
 
+userRouter.post('/', async (req, res) => {
+  
+})
+
 export default userRouter;

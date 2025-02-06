@@ -9,7 +9,8 @@ postRouter.get('/', async (req, res) => {
 
 postRouter.post('/', async (req, res) => {
   try {
-    await Post.createPost(req.body);
+    console.log(req.body)
+    await Post.createPost(req.body.post);
     return res.status(201).send();
   } catch (error) {
     console.log(error);

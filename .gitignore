@@ -133,3 +133,4 @@ dist
 Dockerfile
 docker-compose.dev.yml
 docker-compose.yml
+*.yml
